@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "80e58b79-6374-489d-b794-e0a865814009",
+		"name": "Movie Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36872311"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test123@mailinator.com\",\r\n    \"password\": \"test123\",\r\n    \"name\": \"Test 123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test123@mailinator.com\",\r\n    \"password\": \"test123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Movies",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxMjNAbWFpbGluYXRvci5jb20iLCJ1c2VySWQiOiI2NjhmNzg2ZjE4MDEzZDZiOTMxN2E2NDIiLCJpYXQiOjE3MjA2ODM0OTYsImV4cCI6MTcyMDY4NzA5Nn0.ph831znKBTpaqMwZoAQMytBat59G2MSJKBCoX3UfHqo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/feed/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feed",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxMjNAbWFpbGluYXRvci5jb20iLCJ1c2VySWQiOiI2NjhmNzg2ZjE4MDEzZDZiOTMxN2E2NDIiLCJpYXQiOjE3MjA2Nzg4NTIsImV4cCI6MTcyMDY4MjQ1Mn0.kcwjvq_C6lbCPLRsVJfmXcb-PDc17NsjA2uKyjlxBwA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Titanic",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "A romantic tragedy",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/hp/Downloads/titanic.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/feed/movie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feed",
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxMjNAbWFpbGluYXRvci5jb20iLCJ1c2VySWQiOiI2NjhmNzg2ZjE4MDEzZDZiOTMxN2E2NDIiLCJpYXQiOjE3MjA2ODM0OTYsImV4cCI6MTcyMDY4NzA5Nn0.ph831znKBTpaqMwZoAQMytBat59G2MSJKBCoX3UfHqo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/feed/movie/:movieId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feed",
+						"movie",
+						":movieId"
+					],
+					"variable": [
+						{
+							"key": "movieId",
+							"value": "668f7ebd18013d6b9317a648"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxMjNAbWFpbGluYXRvci5jb20iLCJ1c2VySWQiOiI2NjhmNzg2ZjE4MDEzZDZiOTMxN2E2NDIiLCJpYXQiOjE3MjA2ODM0OTYsImV4cCI6MTcyMDY4NzA5Nn0.ph831znKBTpaqMwZoAQMytBat59G2MSJKBCoX3UfHqo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Titanic",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "A romcom",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"value": "images/2024-07-11T06:42:05.675Z-titanic.jpg",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/feed/movie/:movieId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feed",
+						"movie",
+						":movieId"
+					],
+					"variable": [
+						{
+							"key": "movieId",
+							"value": "668f7ebd18013d6b9317a648"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxMjNAbWFpbGluYXRvci5jb20iLCJ1c2VySWQiOiI2NjhmNzg2ZjE4MDEzZDZiOTMxN2E2NDIiLCJpYXQiOjE3MjA2ODM0OTYsImV4cCI6MTcyMDY4NzA5Nn0.ph831znKBTpaqMwZoAQMytBat59G2MSJKBCoX3UfHqo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/feed/movie/:movieId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feed",
+						"movie",
+						":movieId"
+					],
+					"variable": [
+						{
+							"key": "movieId",
+							"value": "668f7ebd18013d6b9317a648"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
